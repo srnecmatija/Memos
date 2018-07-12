@@ -1,0 +1,49 @@
+body {
+	background: linear-gradient(25deg, #ff8a80, #42a5f5);
+	background-repeat: no-repeat;
+	height: 100%;
+	min-height: 100vh;
+}
+
+nav {
+	background-color: #ff8a80 !important;
+}
+
+nav .brand-logo {
+	font-size: 1.6rem !important;
+}
+
+nav .nav-title {
+	font-size: 1.2rem !important;
+}
+
+.button-logout {
+	padding: 0;
+    height: 48px;
+    width: 180px;
+    text-align: left;
+}
+
+.button-logout-2 {
+	color: #fff;
+	background: transparent;
+	border: 0;
+	padding: 0;
+	height: 64px;
+}
+
+.text-bold {
+	font-weight: bold;
+}
+
+.carousel {
+	
+}
+
+.collection.with-header .collection-header {
+    background-color: #f1f1f1 !important;
+}
+
+.collection {
+	border: 0px !important;
+}
