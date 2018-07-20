@@ -8,7 +8,7 @@ You can see Demo and more details on [my website](https://matija-srnec.com/memos
 
 * Java Spring & Hibernate
 * MySQL - database
-* [MaterialzeCss](https://materializecss.com/) - A modern responsive front-end framework based on Material Design
+* [materializecss](https://materializecss.com/) - A modern responsive front-end framework based on Material Design
 
 ## ER Model
 ![ER Model](https://matija-srnec.com/memos/images/database-model.png)
