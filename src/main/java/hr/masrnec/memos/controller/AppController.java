@@ -132,7 +132,7 @@ public class AppController {
 		else {
 			
 			// set user
-			memo.setUser_id(user);
+			memo.setUser(user);
 			
 			System.out.println("Adding Memo: " + memo);
 			
@@ -145,10 +145,13 @@ public class AppController {
 	}
 	
 	@PostMapping("/search")
-	public String searchMemos(@RequestParam("titleSearch") String titleSearch, Model model) {
+	public String searchMemos(
+			@SessionAttribute("user") User user, 
+			@RequestParam("titleSearch") String titleSearch,
+			Model model) {
 		
 		// search memos from service
-		List<Memo> memoList = memoService.getMemosByTitleSearch(titleSearch);
+		List<Memo> memoList = memoService.getMemosByTitleSearch(user, titleSearch);
 		
 		// add memos to model
 		model.addAttribute("memoList", memoList);

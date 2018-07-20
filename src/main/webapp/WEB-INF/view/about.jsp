@@ -75,6 +75,7 @@
 		          <br>
 		          <p>Author: Matija Srnec</p>
 		          <p>srnec.matija@gmail.com</p>
+		          <a href="https://matija-srnec.com/memos/">Visit website</a>
 		          <br><br>
 		          <p>The app was made using the course "Spring &amp; Hibernate for Beginners" from Chad Darby</p>
 	

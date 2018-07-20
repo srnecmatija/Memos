@@ -16,6 +16,8 @@ import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "memo")
 public class Memo {
@@ -45,13 +47,13 @@ public class Memo {
 			cascade= { CascadeType.DETACH, CascadeType.MERGE, 
 			 		   CascadeType.PERSIST, CascadeType.REFRESH })
 	@JoinColumn(name = "category_id")
-	private Category category_id;
+	private Category category;
 	
 	@ManyToOne(
 			cascade= { CascadeType.DETACH, CascadeType.MERGE, 
 			 		   CascadeType.PERSIST, CascadeType.REFRESH })
 	@JoinColumn(name = "user_id")
-	private User user_id;
+	private User user;
 	
 	public Memo() {
 		
@@ -96,27 +98,28 @@ public class Memo {
 	public void setFavorite(int favorite) {
 		this.favorite = favorite;
 	}
-
-	public Category getCategory_id() {
-		return category_id;
+	
+	public Category getCategory() {
+		return category;
 	}
 
-	public void setCategory_id(Category category_id) {
-		this.category_id = category_id;
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 
-	public User getUser_id() {
-		return user_id;
+	@JsonIgnore
+	public User getUser() {
+		return user;
 	}
 
-	public void setUser_id(User user_id) {
-		this.user_id = user_id;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	@Override
 	public String toString() {
 		return "Memo [id=" + id + ", title=" + title + ", description=" + description + ", datetime=" + datetime
-				+ ", favorite=" + favorite + ", category_id=" + category_id + ", user_id=" + user_id + "]";
+				+ ", favorite=" + favorite + ", category=" + category + ", user=" + user + "]";
 	}
 
 }

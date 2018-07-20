@@ -15,7 +15,7 @@ public interface MemoDao {
 	
 	public List<Memo> getAllFavoriteMemosForUser(User user);
 	
-	public List<Memo> getMemosByTitleSearch(String searchTitle);
+	public List<Memo> getMemosByTitleSearch(User user, String searchTitle);
 	
 	public void saveMemo(Memo memo);
 	

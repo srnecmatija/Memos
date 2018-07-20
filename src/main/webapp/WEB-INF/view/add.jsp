@@ -66,11 +66,11 @@
 						
 						<br>
 						<div class="input-field">
-							<form:select path="category_id.id"> 
+							<form:select path="category.id"> 
 							
 								<c:forEach var="item" items="${categories}">
 								    <c:choose>
-								        <c:when test="${memo.category_id.id == item.key}">
+								        <c:when test="${memo.category.id == item.key}">
 								            <form:option selected="true" value="${item.key}" label="${item.value}" />
 								        </c:when>
 								

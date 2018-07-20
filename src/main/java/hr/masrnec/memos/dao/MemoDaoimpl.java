@@ -58,7 +58,7 @@ public class MemoDaoimpl implements MemoDao {
 		
 		// create a query
 		Query<Memo> query = currentSession.createQuery("from Memo "
-				+ "where user_id=:user "
+				+ "where user=:user "
 				+ "order by datetime desc", Memo.class);
 		query.setParameter("user", user);
 		
@@ -76,7 +76,7 @@ public class MemoDaoimpl implements MemoDao {
 		
 		// create a query
 		Query<Memo> query = currentSession.createQuery("from Memo "
-				+ "where user_id=:user and favorite = 1 "
+				+ "where user=:user and favorite = 1 "
 				+ "order by datetime desc", Memo.class);
 		query.setParameter("user", user);
 		
@@ -87,7 +87,7 @@ public class MemoDaoimpl implements MemoDao {
 	}
 	
 	@Override
-	public List<Memo> getMemosByTitleSearch(String searchTitle) {
+	public List<Memo> getMemosByTitleSearch(User user, String searchTitle) {
 		
 		// get current hibernate session
 		Session currentSession = sessionFactory.getCurrentSession();
@@ -98,9 +98,10 @@ public class MemoDaoimpl implements MemoDao {
 		if (searchTitle != null && searchTitle.trim().length() > 0) {
 			
 			// search for title or description ... case insensitive
-			query = currentSession.createQuery("from Memo where "
-					+ "lower(title) like :theSearchTitle or lower(description) like :theSearchTitle "
+			query = currentSession.createQuery("from Memo where (user=:user) and ("
+					+ "lower(title) like :theSearchTitle or lower(description) like :theSearchTitle) "
 					+ "order by datetime desc", Memo.class);
+			query.setParameter("user", user);
 			query.setParameter("theSearchTitle", "%" + searchTitle.toLowerCase() + "%");
 		}
 		else {

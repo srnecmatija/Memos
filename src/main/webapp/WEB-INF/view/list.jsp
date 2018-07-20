@@ -134,7 +134,7 @@
 					</li>
 					
 			        <a href="${updateLink}" class="collection-item avatar">
-				      <i class="material-icons circle red accent-1">${tempMemo.category_id.iconName}</i>
+				      <i class="material-icons circle red accent-1">${tempMemo.category.iconName}</i>
 				      <span class="title black-text">${tempMemo.title}</span>
 				      <p class="grey-text lighten-3"><br>
 				         ${tempMemo.description}

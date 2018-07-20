@@ -46,9 +46,9 @@ public class MemoServiceImpl implements MemoService {
 	
 	@Override
 	@Transactional
-	public List<Memo> getMemosByTitleSearch(String searchTitle) {
+	public List<Memo> getMemosByTitleSearch(User user, String searchTitle) {
 
-		return memoDao.getMemosByTitleSearch(searchTitle);
+		return memoDao.getMemosByTitleSearch(user, searchTitle);
 	}
 	
 	@Override

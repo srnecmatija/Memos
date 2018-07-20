@@ -35,7 +35,7 @@ public class MemoRestController {
 	
 	// get all memos for user id
 	@GetMapping("/memos/{userId}/all")
-	public List<Memo> getAllMemosForUser(@PathVariable int userId) {
+	public List<?> getAllMemosForUser(@PathVariable int userId) {
 		
 		// get user by id
 		User user = userService.findById(userId);
@@ -46,6 +46,21 @@ public class MemoRestController {
 		}
 		
 		return memoService.getAllMemosForUser(user);
+	}
+	
+	// get all favorite memos for user id
+	@GetMapping("/memos/{userId}/favorite")
+	public List<?> getAllFavoriteMemosForUser(@PathVariable int userId) {
+		
+		// get user by id
+		User user = userService.findById(userId);
+		
+		// check if exists
+		if (user == null) {
+			throw new NotFoundException("User not found id: " + userId);
+		}
+		
+		return memoService.getAllFavoriteMemosForUser(user);
 	}
 	
 	// get memo by id
@@ -89,8 +104,8 @@ public class MemoRestController {
 		memo.setId(0);
 		
 		// set user and category
-		memo.setUser_id(user);
-		memo.setCategory_id(category);
+		memo.setUser(user);
+		memo.setCategory(category);
 		
 		// add memo
 		memoService.saveMemo(memo);
