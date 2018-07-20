@@ -2,6 +2,7 @@
 Java Spring &amp; Hibernate App
 
 This is a simple CRUD web application that saves your memories. It was created after I completed the course "Spring & Hibernate for Beginners" - Chad Darby. 
+
 You can see Demo and more details on [my website](https://matija-srnec.com/memos/).
 
 ## Built With
